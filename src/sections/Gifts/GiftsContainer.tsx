@@ -20,17 +20,17 @@ const GiftsContainer = () => {
     setGiftList(updatedList);
   };
 
-  const onCancel = (gift: IGift) => {
-    const updatedList = giftsList.map((giftObj) =>
-      gift.id !== giftObj.id
-        ? giftObj
-        : {
-            ...gift,
-            isReserved: false,
-          }
-    );
-    setGiftList(updatedList);
-  };
+  // const onCancel = (gift: IGift) => {
+  //   const updatedList = giftsList.map((giftObj) =>
+  //     gift.id !== giftObj.id
+  //       ? giftObj
+  //       : {
+  //           ...gift,
+  //           isReserved: false,
+  //         }
+  //   );
+  //   setGiftList(updatedList);
+  // };
 
   return <Gifts giftsList={giftsList} onReserve={onReserve} />;
 };

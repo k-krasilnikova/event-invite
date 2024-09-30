@@ -7,8 +7,8 @@ import { GiftsLayout, StyledImg, StyledButton } from "./styled";
 
 export const Gifts: FC<{
   giftsList: IGift[];
-  onReserve: (gift: IGift) => void;
-}> = ({ giftsList, onReserve }) => (
+  onReserveClick: (gift: IGift) => void;
+}> = ({ giftsList, onReserveClick }) => (
   <div>
     <h4>Gifts</h4>
     <GiftsLayout>
@@ -27,7 +27,7 @@ export const Gifts: FC<{
               loading="lazy"
               className="MuiImageListItem-img"
               isReserved={gift.isReserved}
-              onClick={() => onReserve(gift)}
+              onClick={() => onReserveClick(gift)}
             />
           </ImageListItem>
         ))}

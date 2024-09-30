@@ -9,7 +9,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 
 interface IModalDialogProps {
   isModalOpened: boolean;
-  handleClose: ({ ...props }: { [x: string]: any }) => void;
+  handleClose: ({ currentTarget }: { currentTarget: string }) => void;
   title?: string;
   children?: ReactNode;
   actions?: ReactNode;

@@ -7,27 +7,26 @@ import ModalDialog from "../ModalDialog";
 // import { Modal, ModalContentWrapper, ModalSubtitle } from "./styled";
 
 interface IReserveModalProps {
-  isModalOpened: boolean;
-  handleClose: ({ ...props }: { [x: string]: any }) => void;
   gift: IGift | null;
+  isModalOpened: boolean;
+  onReserve: () => void;
+  handleClose: () => void;
 }
 
 const ReserveModal: FC<IReserveModalProps> = ({
-  isModalOpened,
-  handleClose,
   gift,
+  isModalOpened,
+  onReserve,
+  handleClose,
 }) => (
   <ModalDialog
     title="Резерв подарка"
     handleClose={handleClose}
     isModalOpened={isModalOpened}
     actions={
-      <>
-        <Button onClick={handleClose}>Disagree</Button>
-        <Button onClick={handleClose} autoFocus>
-          Agree
-        </Button>
-      </>
+      <Button onClick={onReserve} variant="outlined">
+        Зарезервировать
+      </Button>
     }
   >
     <p>{gift?.title}</p>

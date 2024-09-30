@@ -11,11 +11,7 @@ const GiftsContainer = () => {
   // const [isCancelModalOpened, setCancelModalOpened] = useState(false);
 
   const handleReserveModalOpen = () => setReserveModalOpened(true);
-  const handleReserveModalClose = ({ ...props }) => {
-    console.log(123, props);
-    onReserve();
-    setReserveModalOpened(false);
-  };
+  const handleReserveModalClose = () => setReserveModalOpened(false);
   // const handleCancelModalOpen = () => setCancelModalOpened(true);
   // const handleCancelModalClose = () => setCancelModalOpened(false);
 
@@ -28,6 +24,7 @@ const GiftsContainer = () => {
       );
       setGiftList(updatedList);
     }
+    handleReserveModalClose();
   };
 
   const onReserveClick = (gift: IGift) => {
@@ -58,6 +55,7 @@ const GiftsContainer = () => {
     <>
       {isReserveModalOpened && (
         <ReserveModal
+          onReserve={onReserve}
           isModalOpened={isReserveModalOpened}
           handleClose={handleReserveModalClose}
           gift={selectedGift}

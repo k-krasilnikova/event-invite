@@ -1,14 +1,13 @@
 import { FC, useState } from "react";
-import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import LoadingButton from "@mui/lab/LoadingButton";
 
 import ModalDialog from "../ModalDialog";
-
-// import { Modal, ModalContentWrapper, ModalSubtitle } from "./styled";
 
 interface ICancelModalProps {
   isModalOpened: boolean;
   error?: string | null;
+  isLoading?: boolean;
   onCancel: (code: string) => void;
   handleClose: () => void;
 }
@@ -16,6 +15,7 @@ interface ICancelModalProps {
 const CancelModal: FC<ICancelModalProps> = ({
   isModalOpened,
   error,
+  isLoading,
   onCancel,
   handleClose,
 }) => {
@@ -35,9 +35,13 @@ const CancelModal: FC<ICancelModalProps> = ({
       handleClose={handleClose}
       isModalOpened={isModalOpened}
       actions={
-        <Button onClick={() => onCancel(code)} variant="contained">
+        <LoadingButton
+          onClick={() => onCancel(code)}
+          variant="contained"
+          loading={isLoading}
+        >
           Отмена резерва
-        </Button>
+        </LoadingButton>
       }
     >
       <div>
@@ -47,7 +51,7 @@ const CancelModal: FC<ICancelModalProps> = ({
           id="outlined-basic"
           variant="outlined"
         />
-        {error && <p>Неверный код</p>}
+        {error && <p>{error}</p>}
       </div>
     </ModalDialog>
   );

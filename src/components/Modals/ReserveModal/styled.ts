@@ -1,5 +1,11 @@
 import { styled } from "@mui/system";
 
+export const CodeBlock = styled("div")({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "end",
+});
+
 export const Key = styled("p")({
   fontSize: 42,
 });

@@ -1,6 +1,7 @@
 {
   "hosting": {
-    "public": "dist",
+    "site": "event-invite-110cf",
+    "public": "./dist",
     "ignore": [
       "firebase.json",
       "**/.*",

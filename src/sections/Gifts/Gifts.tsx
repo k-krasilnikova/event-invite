@@ -8,7 +8,8 @@ import { GiftsLayout, StyledImg, StyledButton } from "./styled";
 export const Gifts: FC<{
   giftsList: IGift[];
   onReserveClick: (gift: IGift) => void;
-}> = ({ giftsList, onReserveClick }) => (
+  onCacnelRsrvtn: () => void;
+}> = ({ giftsList, onReserveClick, onCacnelRsrvtn }) => (
   <div>
     <h4>Gifts</h4>
     <GiftsLayout>
@@ -32,7 +33,9 @@ export const Gifts: FC<{
           </ImageListItem>
         ))}
       </ImageList>
-      <StyledButton variant="outlined">Cancel Rsrvtn</StyledButton>
+      <StyledButton variant="outlined" onClick={onCacnelRsrvtn}>
+        Cancel Rsrvtn
+      </StyledButton>
     </GiftsLayout>
   </div>
 );

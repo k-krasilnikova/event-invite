@@ -1,11 +1,10 @@
 import { FC, ReactNode } from "react";
-import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
-// import { Modal, ModalContentWrapper, ModalSubtitle } from "./styled";
+import { StyledDialog } from "./styled";
 
 interface IModalDialogProps {
   isModalOpened: boolean;
@@ -21,9 +20,8 @@ const ModalDialog: FC<IModalDialogProps> = ({
   title,
   children,
   actions,
-  // ...props
 }) => (
-  <Dialog
+  <StyledDialog
     open={isModalOpened}
     onClose={handleClose}
     aria-labelledby="alert-dialog-title"
@@ -36,7 +34,7 @@ const ModalDialog: FC<IModalDialogProps> = ({
       </DialogContentText>
     </DialogContent>
     <DialogActions>{actions}</DialogActions>
-  </Dialog>
+  </StyledDialog>
 );
 
 export default ModalDialog;

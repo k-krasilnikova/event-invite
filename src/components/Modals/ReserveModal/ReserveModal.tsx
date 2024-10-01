@@ -3,8 +3,7 @@ import Button from "@mui/material/Button";
 
 import { IGift } from "../../../constants/gifts";
 import ModalDialog from "../ModalDialog";
-
-// import { Modal, ModalContentWrapper, ModalSubtitle } from "./styled";
+import { Title, Key, Link, Description } from "./styled";
 
 interface IReserveModalProps {
   gift: IGift | null;
@@ -24,14 +23,19 @@ const ReserveModal: FC<IReserveModalProps> = ({
     handleClose={handleClose}
     isModalOpened={isModalOpened}
     actions={
-      <Button onClick={onReserve} variant="outlined">
+      <Button onClick={onReserve} variant="contained">
         Зарезервировать
       </Button>
     }
   >
-    <p>{gift?.title}</p>
-    <p>{gift?.key}</p>
-    <p>{gift?.description}</p>
+    <Title>{gift?.title}</Title>
+    <Key>{gift?.key}</Key>
+    <Description>{gift?.description}</Description>
+    {gift?.link && (
+      <Link href={gift?.link} target="_blank">
+        Больше деталей здесь *Клик*
+      </Link>
+    )}
   </ModalDialog>
 );
 
